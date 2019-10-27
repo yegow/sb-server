@@ -7,7 +7,7 @@ const login = async (req: Request, res: Response) => {
     const {username, password} = req.body;
 
     if (!username || !password) {
-        return res.status(401).json(
+        return res.json(
             createResponse(
                 'fail',
                 'Please provide all the required fields'
@@ -21,7 +21,7 @@ const login = async (req: Request, res: Response) => {
                     username: username
                 }
             });
-        
+
         if (!user) {
             return res.status(204).json(
                 createResponse(
@@ -35,14 +35,14 @@ const login = async (req: Request, res: Response) => {
             const valid = await bcrypt.compare(password, user.password!);
 
             if (!valid) {
-                return res.status(401).json(
+                return res.json(
                     createResponse(
                         'fail',
                         'Incorrect credential combo.'
                     )
                 );
             }
-    
+
             res.json(
                 createResponse(
                     'success',
@@ -66,7 +66,7 @@ const login = async (req: Request, res: Response) => {
             ));
         }
 
-        
+
     } catch(e) {
         console.error('**Throwing Error: %s', e.message);
         throw e;

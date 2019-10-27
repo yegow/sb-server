@@ -3,19 +3,20 @@ import { Property } from "../../../models/property";
 import { createResponse } from "../create-response";
 
 const getAll = async (req: Request, res: Response) => {
-    const {type, limit, sort} = req.query,
-        opts:any = {};
+    const {type, limit, sort, category} = req.query,
+        opts:any = { where: {} };
 
     if (type) {
-        opts.where = {
-            type: type
-        }
+        opts.where.type = type
+    }
+    if (category) {
+        opts.where.category = category
     }
     if (limit) {
         opts.limit = +limit;
     }
     if (sort) {
-        opts.order = [sort];
+        opts.order = sort;
     }
 
     try {

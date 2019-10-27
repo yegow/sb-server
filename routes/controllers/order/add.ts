@@ -13,7 +13,7 @@ const add = async (req: Request, res: Response) => {
     );
 
     if (!props) {
-        return res.status(400).json(
+        return res.json(
             createResponse(
                 'fail',
                 'Please provide all the required fields'
@@ -22,10 +22,10 @@ const add = async (req: Request, res: Response) => {
     }
 
     try {
-        const property = await Order.create(props);
+        const order = await Order.create(props);
         res.status(201).json(createResponse(
             'success',
-            property
+            order
         ));
     } catch(e) {
         console.error('\n*****');

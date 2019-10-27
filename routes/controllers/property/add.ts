@@ -11,7 +11,7 @@ const add = async (req: Request, res: Response) => {
     );
 
     if (!props) {
-        return res.status(400).json(
+        return res.json(
             createResponse(
                 'fail',
                 'Please provide all the required fields'

@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { createResponse } from "../create-response";
-import { Order } from "../../../models/order";
+import { Review } from "../../../models/review";
 
 const getAll = async (req: Request, res: Response) => {
     const {user, property, limit, sort} = req.query,
-        opts:any = { where: {} };
+        opts:any = { where: {}};
 
     if (user) {
         opts.where.userId = user
@@ -20,10 +20,10 @@ const getAll = async (req: Request, res: Response) => {
     }
 
     try {
-        const orders = await Order.findAll(opts);
+        const reviews = await Review.findAll(opts);
         res.status(200).json(createResponse(
             'success',
-            orders
+            reviews
         ));
     } catch(e) {
         console.error('**Throwing Error: %s', e.message);
