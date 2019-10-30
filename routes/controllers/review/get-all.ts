@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import Sequelize from 'sequelize';
 
 import { createResponse } from "../create-response";
 import { Review } from "../../../models/review";
@@ -25,13 +26,11 @@ const getAll = async (req: Request, res: Response) => {
     opts.include = [
         {
             model: User,
-            where: { id: Sequelize.col('review.userId')},
-            include: ['username', 'id']
+            attributes: ['username', 'id']
         },
         {
             model: Property,
-            where: { id: Sequelize.col('review.propertyId')},
-            include: ['title', 'type', 'category', 'location', 'id']
+            attributes: ['title', 'type', 'categoryId', 'location', 'id']
         }
     ]
 

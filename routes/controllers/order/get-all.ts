@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { createResponse } from "../create-response";
 import { Order } from "../../../models/order";
+import { Property } from "../../../models/Property";
+import { User } from "../../../models/User";
 
 const getAll = async (req: Request, res: Response) => {
     const {user, property, limit, sort} = req.query,
@@ -18,6 +20,18 @@ const getAll = async (req: Request, res: Response) => {
     if (sort) {
         opts.order = sort;
     }
+
+    opts.include = [
+        {
+            model: Property,
+            attributes: ['title', 'type', 'categoryId', 'location', 'id']
+        },
+        {
+          model: User,
+          attributes: ['id', 'username']
+        }
+    ]
+
 
     try {
         const orders = await Order.findAll(opts);

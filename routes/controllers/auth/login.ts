@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { Request, Response } from "express";
 import { User } from "../../../models/user";
 import { createResponse } from "../create-response";
+import { sign } from './sign';
 
 const login = async (req: Request, res: Response) => {
     const {username, password} = req.body;
@@ -43,16 +44,21 @@ const login = async (req: Request, res: Response) => {
                 );
             }
 
+            const token = sign(user);
+
             res.json(
                 createResponse(
                     'success',
                     {
+                        id: user.id,
                         firstName: user.firstName,
                         lastName: user.lastName,
                         email: user.email,
                         username: user.username,
                         mobile: user.mobile,
                         address: user.address,
+                        role: user.role,
+                        token
                     }
                 )
             );

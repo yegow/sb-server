@@ -5,14 +5,6 @@ import { Property } from './property';
 import { User } from './user';
 
 const Review = db.define('review', {
-    userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    propertyId: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    },
     rating: {
       type: Sequelize.INTEGER(1),
       allowNull: false
@@ -22,8 +14,8 @@ const Review = db.define('review', {
     }
 });
 
-Property.hasMany(Review);
-User.hasMany(Review);
+Review.belongsTo(Property);
+Review.belongsTo(User);
 
 export {
     Review

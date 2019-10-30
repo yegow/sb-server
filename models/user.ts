@@ -18,6 +18,10 @@ const User = db.define('user', {
         type: Sequelize.STRING(40),
         allowNull: false
     },
+    role: {
+      type: Sequelize.STRING(10),
+      defaultValue: 'user'
+    },
     mobile: {
         type: Sequelize.STRING(10),
     },
