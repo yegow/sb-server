@@ -6,8 +6,8 @@ import { Property } from "../../../models/property";
 const add = async (req: Request, res: Response) => {
     const props = checkFields(
         req.body,
-        ['title', 'category', 'type', 'location', 'price', 'image', 'description'],
-        ['title', 'category', 'type', 'location', 'price', 'image']
+        ['title', 'categoryId', 'type', 'location', 'price', 'image', 'description'],
+        ['title', 'categoryId', 'type', 'location', 'price', 'image']
     );
 
     if (!props) {

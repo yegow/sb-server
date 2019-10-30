@@ -10,10 +10,6 @@ const Property = db.define('property', {
         type: Sequelize.STRING(40),
         allowNull: false
     },
-    category: {
-        type: Sequelize.STRING(40),
-        allowNull: false
-    },
     type: {
         type: Sequelize.STRING(20),
         allowNull: false
@@ -35,8 +31,7 @@ const Property = db.define('property', {
     }
 });
 
-Property.hasOne(Order);Order
-User.hasMany(Property)
+Property.hasOne(Order);
 Category.hasMany(Property);
 
 export {
