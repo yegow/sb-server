@@ -26,7 +26,7 @@ jobs: # a collection of steps
           name: test
           command: npm test
       - codecov/upload:
-          file: 'codcov.log'
+          file: 'code_coverage.info'
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: test-results.xml
