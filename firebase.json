@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "eb-server",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
