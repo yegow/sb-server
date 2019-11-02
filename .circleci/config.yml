@@ -28,7 +28,7 @@ jobs: # a collection of steps
           name: coverage
           command: npm run coverage
       - codecov/upload:
-          file: ./coverage/coverage.yml
+          file: ./coverage/coverage.lcov
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: test-results.xml
