@@ -6,7 +6,7 @@
     "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts",
     "prod": "tsc && node ./build/app.js",
     "test": "jasmine",
-    "coverage": "nyc report --reporter=text-lcov > coverage/coverage.lcov npm run test"
+    "coverage": "nyc --reporter=text-lcov > coverage/coverage.lcov npm run test"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
