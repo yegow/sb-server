@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts",
-    "prod": "tsc && node ./build/app.js",
+    "start": "tsc && node ./build/app.js",
     "test": "jasmine",
     "coverage": "nyc --reporter=text-lcov > coverage/coverage.lcov npm run test"
   },
