@@ -44,6 +44,5 @@ jobs: # a collection of steps
     
 workflows:
   version: 2
-  deploy:
-    jobs:
+  deploy-build:
     - firebase-deploy/deploy
