@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { createResponse } from "../create-response";
 import { Order } from "../../../models/order";
-import { Property } from "../../../models/Property";
-import { User } from "../../../models/User";
+import { Property } from "../../../models/property";
+import { User } from "../../../models/user";
 
 const getAll = async (req: Request, res: Response) => {
     const {user, property, limit, sort} = req.query,

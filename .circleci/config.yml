@@ -23,10 +23,12 @@ jobs: # a collection of steps
           paths:
             - ./node_modules
       - run: # run tests
-          name: test
-          command: npm test
+          # name: test
+          # command: npm test
+          name: coverage
+          command: npm run coverage
       - codecov/upload:
-          file: 'codcov.log'
+          file: ./coverage/coverage.lcov
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: test-results.xml
