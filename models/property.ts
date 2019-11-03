@@ -2,8 +2,9 @@ const Sequelize = require('sequelize');
 const { sequelize: db } = require("../db/conn");
 
 import { User } from "./user";
-import { Category } from './category';
+import { Category } from "./category";
 import { Order } from "./order";
+import { Review } from "./review";
 
 const Property = db.define('property', {
     title: {
@@ -28,11 +29,18 @@ const Property = db.define('property', {
     },
     description: {
         type: Sequelize.TEXT
+    },
+    status: {
+      type: Sequelize.STRING,
+      defaultValue: 'available'
     }
 });
 
 Property.hasOne(Order);
-Category.hasMany(Property);
+Order.belongsTo(Property);
+
+Property.hasMany(Review);
+Review.belongsTo(Property);
 
 export {
     Property

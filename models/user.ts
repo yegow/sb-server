@@ -1,3 +1,7 @@
+import { Order } from "./order";
+import { Property } from "./property";
+import { Review } from "./review";
+
 const Sequelize = require('sequelize');
 const { sequelize: db } = require("../db/conn");
 
@@ -33,6 +37,15 @@ const User = db.define('user', {
         allowNull: false
     }
 });
+
+User.hasMany(Property);
+Property.belongsTo(User);
+
+User.hasMany(Review);
+Review.belongsTo(User);
+
+User.hasMany(Order);
+Order.belongsTo(User);
 
 export {
     User

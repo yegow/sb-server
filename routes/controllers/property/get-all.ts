@@ -4,7 +4,9 @@ import { createResponse } from "../create-response";
 
 const getAll = async (req: Request, res: Response) => {
     const {type, limit, sort, category} = req.query,
-        opts:any = { where: {} };
+        opts:any = { where: {
+          status: 'available'
+        } };
 
     if (type) {
         opts.where.type = type

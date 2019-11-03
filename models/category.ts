@@ -1,3 +1,5 @@
+import { Property } from "./property";
+
 const Sequelize = require('sequelize');
 const { sequelize: db } = require("../db/conn");
 
@@ -7,6 +9,9 @@ const Category = db.define('category', {
         allowNull: false
     }
 });
+
+Category.hasMany(Property);
+Property.belongsTo(Category);
 
 export {
     Category

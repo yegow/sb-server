@@ -14,8 +14,6 @@ const Review = db.define('review', {
     }
 });
 
-Review.belongsTo(Property);
-Review.belongsTo(User);
 
 export {
     Review
