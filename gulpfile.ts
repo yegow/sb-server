@@ -1,7 +1,7 @@
 import { task, src, dest, series } from 'gulp';
 
 task('build.copy.assets', () => {
-    return src(['./**/*', '!./**/*.ts', '!node_modules', '!coverage'])
+    return src(['./**/*', '!./**/*.ts', '!coverage/*.*'])
         .pipe(dest('build'));
 });
 
