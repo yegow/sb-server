@@ -6,7 +6,7 @@
     "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts",
     "prestart:prod": "tsc && gulp",
     "start": "node ./build/app.js",
-    "heroku-build": "npm run prestart:prod",
+    "postintall": "npm run prestart:prod",
     "test": "jasmine",
     "coverage": "nyc --reporter=text-lcov > coverage/coverage.lcov npm run test"
   },
