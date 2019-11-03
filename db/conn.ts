@@ -14,7 +14,8 @@ sequelize.authenticate()
     throw err;
 });
 
-sequelize.sync({ force: true });
+// { force: true }
+sequelize.sync();
 
 module.exports = {
   sequelize

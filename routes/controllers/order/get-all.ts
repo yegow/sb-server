@@ -24,7 +24,7 @@ const getAll = async (req: Request, res: Response) => {
     opts.include = [
         {
             model: Property,
-            attributes: ['title', 'type', 'categoryId', 'location', 'id']
+            attributes: ['title', 'type', 'categoryId', 'location', 'id', 'image']
         },
         {
           model: User,
