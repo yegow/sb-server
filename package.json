@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts",
-    "prestart:prod": "tsc && gulp",
+    "prestart:prod": "tsc",
     "start": "node ./build/app.js",
     "postintall": "npm run prestart:prod",
     "test": "jasmine",
@@ -19,6 +19,7 @@
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "jsonwebtoken": "^8.5.1",
+    "logrocket": "^1.0.3",
     "morgan": "~1.9.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.1",
