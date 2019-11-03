@@ -9,6 +9,8 @@ var debug = require('debug')('eb-server:server');
 var http = require('http');
 
 import dotenv from 'dotenv';
+import LogRocket from 'logrocket';
+
 dotenv.config();
 
 /**
@@ -23,6 +25,11 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * LogRocket integration
+ */
+LogRocket.init('bo1ohl/ebookingserver');
 
 /**
  * Listen on provided port, on all network interfaces.
