@@ -5,3 +5,7 @@ db.sqlite3
 .env
 
 .nyc_output
+
+./coverage
+
+./build
