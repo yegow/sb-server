@@ -6,6 +6,4 @@ db.sqlite3
 
 .nyc_output
 
-./coverage
-
 ./build
