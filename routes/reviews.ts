@@ -7,8 +7,8 @@ const { auth } = require('./middleware/auth');
 
 var reviewRouter: Router = express.Router();
 
-reviewRouter.get('/', getAll);
 reviewRouter.get('/:id', getOne);
+reviewRouter.get('/', getAll);
 reviewRouter.post('/', auth, add);
 reviewRouter.put('/:id', auth, edit)
 reviewRouter.delete('/:id', auth, destroy);

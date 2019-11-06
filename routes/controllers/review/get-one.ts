@@ -23,13 +23,13 @@ const getOne = async (req: Request, res: Response) => {
         });
 
         if (!review) {
-            return res.status(204).json(createResponse(
+            return res.json(createResponse(
                 'fail',
                 'No review by that identifier.'
             ));
         }
 
-        res.status(200).json(createResponse(
+        res.json(createResponse(
             'success',
             review
         ));

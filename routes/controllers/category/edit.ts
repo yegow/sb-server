@@ -11,13 +11,13 @@ const edit = async (req: Request, res: Response) => {
             }
         );
         console.log('Changed', category);
-        res.status(200).json(createResponse(
+        res.json(createResponse(
             'success',
             category
         ));
     } catch(e) {
-        console.error('**Throwing Error: %s', e.message);
-        throw e;
+      console.error('**Throwing Error: %s', e.message);
+      throw e;
     }
 };
 

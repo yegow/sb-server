@@ -6,13 +6,13 @@ const getOne = async (req: Request, res: Response) => {
     try {
         const order = await Order.findByPk(req.params.id)
         if (!order) {
-            return res.status(204).json(createResponse(
+            return res.json(createResponse(
                 'fail',
-                'No property by that identifier.'
+                'No order by that identifier.'
             ));
         }
 
-        res.status(200).json(createResponse(
+        res.json(createResponse(
             'success',
             order
         ));

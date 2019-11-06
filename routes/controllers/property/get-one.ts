@@ -6,13 +6,13 @@ const getOne = async (req: Request, res: Response) => {
     try {
         const property = await Property.findByPk(req.params.id)
         if (!property) {
-            return res.status(204).json(createResponse(
+            return res.json(createResponse(
                 'fail',
                 'No property by that identifier.'
             ));
         }
 
-        res.status(200).json(createResponse(
+        res.json(createResponse(
             'success',
             property
         ));

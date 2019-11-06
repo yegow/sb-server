@@ -6,13 +6,13 @@ const getOne = async (req: Request, res: Response) => {
     try {
         const category = await Category.findByPk(req.params.id)
         if (!category) {
-            return res.status(204).json(createResponse(
+            return res.json(createResponse(
                 'fail',
                 'No category by that identifier'
             ));
         }
 
-        res.status(200).json(createResponse(
+        res.json(createResponse(
             'success',
             category
         ));
